@@ -1,0 +1,248 @@
+
+
+#yourAcc{
+    margin: auto;
+    margin-top: 5%;
+    width: 80%;
+    margin-left: 5%;
+    font-size: 2.5vw;
+}
+
+/* cards */
+
+.card-container{
+    display: grid;
+    width: 80%;
+    grid-template-columns: repeat(3,30%);
+    /* border: 2px solid black; */
+    margin: auto;
+    margin-top: 2%;
+    justify-content: center;
+    align-items: center;
+    column-gap: 25px;
+    row-gap: 25px;
+    padding: 1%;
+}
+
+.item{
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid black; */
+    padding: 2%;
+    cursor:pointer;
+    border-radius: 15px;
+    background-color: rgba(189, 189, 189, 0.157);
+    box-shadow: 0px 0px 5px 2px rgba(173, 173, 173, 0.212);
+}
+
+.item:hover{
+    transform: scale(1.1);
+}
+
+.item > img,span {
+    margin: 0% 10px;
+}
+
+.item > span{
+    font-size: 1.5vw;
+}
+
+.card-container img{
+    width: 6vw;
+}
+
+
+.carousel-category {
+    margin-top: 5%;
+    background: transparent;
+  }
+  
+  .carousel-cell {
+    display: flex;
+    align-items: center;
+    width: 28%;
+    height: 18vw;
+    margin-right: 10px;
+    background: transparent;
+    border-radius: 5px;
+    counter-increment: carousel-cell;
+    justify-content: center;
+  }
+  
+  .carousel-cell.is-selected {
+    background: #04151F;
+  }
+
+  .carousel-cell.is-selected {
+    background-color: white ;
+    border-radius: 15px;
+  }
+
+/* end cards */
+
+/* The Modal (background) */
+#modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback co
+  margin: auto;lor */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+#info{
+  display: block;
+  width: 40vw;
+  margin: 2% auto auto auto;
+  text-align: center;
+  background-color: rgb(255, 127, 36);
+  color: white;
+  border-radius: 10px;
+  padding: 2%;
+  width: 30vw;
+  animation-duration: 1s; 
+
+}
+
+#info small {
+  display: flex;
+    font-size: xx-small;
+    cursor: pointer;
+    /* text-align: right; */
+    flex-direction: row-reverse;
+    filter: brightness(0.1);
+}
+
+
+ .info-container{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  text-justify: left;
+}
+.info-container li{
+  padding: 2% 0% 2% 0%;
+  margin: 5% 0% 5% 0%;
+}
+
+/* security */
+.sec-container{
+  width: 80%;
+  margin: auto;
+  padding: 2%;
+}
+.sec-container form {
+  display: flex;
+  flex-direction: column;
+}
+#sec-form img{
+width: 10vw;
+border-radius: 10px;
+margin: auto;
+border: 2px solid black;
+cursor: pointer;
+}
+
+#sec-form label{
+  margin: 1% 0% 0% 0% ;
+  text-align: left;
+}
+
+#sec-form p {
+  margin-bottom: 0%;
+}
+
+#sec-form button{
+  /* width: 20%; */
+  margin: 2% auto;
+
+}
+
+/* //wallet  */
+
+.wall-container{
+  width: 80%;
+  margin: auto;
+  padding: 2%;
+}
+
+.wall-container p {
+  margin-bottom: 2%!important;
+}
+
+.wall-container button {  
+  margin: auto;
+}
+.wall-container form {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* order */
+
+.order-container{
+  display: grid;
+  grid-template-rows: auto;
+  /* border: 2px solid black; */
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.o-item{
+  display: grid;
+  background-color: aliceblue;
+  /* border: 2px solid black; */
+  margin: 1% 0% 1% 0%;
+  color: #04151F;
+  grid-template-columns: repeat(3,30%);
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 1vw;
+}
+
+.o-item h5{
+  line-height: 0%;
+  margin-bottom: 0%;
+}
+
+.o-item span {
+  margin: 0%;
+}
+
+.o-item .img-fluid{
+  margin: 0%;
+}
+
+/* address  */
+.address-container{
+  width: 80%;
+  margin: auto;
+  padding: 2%;
+  text-align: left;
+  }
+
+  .address-container p {
+  margin-bottom: 2%!important;
+  }
+
+  .address-container button {
+  margin: auto;
+  margin-top: 2%;
+  }
+  .address-container form {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  }

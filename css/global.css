@@ -1,0 +1,41 @@
+*{
+    font-family: 'Barlow', sans-serif;
+    transition: all 300ms ease;
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;    
+}
+
+  body{
+    background-color: #ebebeb63;
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+  }
+
+  #loader-container{
+    display: flex;
+    left: 0%;
+    top: 0%;
+    justify-content: center;
+    align-items: center;
+  width: 100%;
+    height: 100vh;
+  }
+  
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #032135;
+    border-bottom: 16px solid #ff5202;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

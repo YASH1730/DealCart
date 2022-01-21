@@ -1,0 +1,66 @@
+
+.reg-container{
+    display: grid;
+    margin-top:3%;
+    height: 70vh;
+    grid-template-columns: 40% 10% 40%;
+    justify-content: center;
+    align-items: center;
+}
+
+.reg-container img:hover{
+    transform: scale(1.1);
+}
+
+.reg-container .vr{
+    width: 2%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.212);
+    margin: auto;
+}
+
+.reg-container .regbtn{
+    display: block;
+    background-color: rgb(255, 60, 0);
+    color: aliceblue;
+    font: bold;
+    margin: auto;
+    margin-top: 3%;
+
+}
+
+.reg-container textarea{
+    resize: none;
+}
+
+.regbtn:hover{
+    background-color: rgb(216, 57, 9);
+    transform: scale(0.9);
+}
+
+.heading{
+    display: block;
+    font-size: 2vw;
+    color: #04151F;
+    font-weight: bold;
+    text-align: center;
+    margin: -2% auto 5% auto;
+    
+  }
+  
+  .heading::after{
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    margin:auto ;
+    background: #eb5d1e;
+    bottom: 0;
+    left: calc(50% - 30px);
+  }
+  
+  .reg-form a{
+      text-decoration: none;
+      color: #eb5d1e;
+      
+  }

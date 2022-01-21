@@ -1,0 +1,99 @@
+
+
+
+@media screen and (max-width: 510px) {
+    nav img {
+        margin: 0% 0px 0% 20px;
+        width: 20px;
+    }
+    .btn{
+        font-size: 2.5vw;
+      
+      }
+
+      #logo{
+        width: 25vw;
+        margin: 0%;
+        filter: invert(0);
+    
+      }
+
+      .ser-item p {
+        font-size: 3vw;
+    }
+
+    #menu-icon {
+        font-size: 4vw;
+    }
+
+    .flickity-prev-next-button {
+        width: 30px;
+        height: 30px;
+    }
+    
+    #regular-form{
+        display: none;
+    }
+    
+    #nav-form{
+        display: flex!important;
+    }
+    
+    
+
+    .p-5{
+        padding: 1rem !important;
+
+    }
+
+    #web-name{
+    font-size: 4vw;
+    margin: auto;
+    
+}
+
+#moto::first-letter{
+    font-size: 20px;
+  }
+  
+  
+}
+@media screen and (max-width: 444px) {
+    .flickity-prev-next-button {
+        width: 25px;
+        height: 25px;
+    }
+
+    #web-name{
+        font-size: 6vw;
+        
+      }
+   
+       .ser-item img {
+    width: 55%;
+    
+}
+.heading{
+    font-size: 4vw;
+  }
+  
+    .service-container{
+        display: grid;
+  grid-template-columns: repeat(1,60%);
+        justify-content: center;
+        row-gap: 10px;
+        height: 100%;
+        /* border : 2px solid black; */
+      
+      }
+      
+      .ser-item{
+        display: flex;
+        flex-direction: row;
+        height: fit-content;
+        justify-content: center;
+        align-items: center;
+        /* border: 2px solid black; */
+      }
+      
+    }

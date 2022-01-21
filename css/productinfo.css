@@ -1,0 +1,98 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.product-container{
+    /* border: 2px solid black; */
+    display: grid;
+    grid-template-columns: 40% 30% 20%;
+}
+
+.p-items{
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid black; */
+}
+
+.p-img{
+    width: 40vw;
+}
+
+
+.my-btn{
+    background-color: rgb(255, 81, 0);
+    border: 2px solid rgb(255, 81, 0) ;
+    color: aliceblue;
+    font: bolder;
+}
+
+.my-btn:hover{
+    background-color: rgb(219, 73, 6);
+    border: 2px solid rgb(255, 81, 0) ;
+    transform: scale(0.9);
+}
+
+
+#yourAcc{
+    margin: auto;
+    margin-top: 5%;
+    width: 80%;
+    margin-left: 5%;
+    font-size: 2.5vw;
+}
+
+.carousel-category {
+    margin-top: 5%;
+    background: transparent;
+  }
+  
+  .carousel-cell {
+    width: 28%;
+    height: 150px;
+    margin-right: 10px;
+    background: transparent;
+    border-radius: 5px;
+    counter-increment: carousel-cell;
+  }
+  
+  .carousel-cell.is-selected {
+    background: #04151F;
+  }
+
+  .card-container img{
+    width: 6vw;
+}
+
+.img-fluid{
+  height: inherit;
+
+}
+
+
+.carousel-category {
+    margin-top: 5%;
+    background: transparent;
+  }
+  
+  .carousel-cell {
+    display: flex;
+    align-items: center;
+    width: 28%;
+    height: 18vw;
+    margin-right: 10px;
+    background: transparent;
+    border-radius: 5px;
+    counter-increment: carousel-cell;
+    justify-content: center;
+  }
+  
+  .carousel-cell.is-selected {
+    background: #04151F;
+  }
+
+  .carousel-cell.is-selected {
+    background-color: white ;
+    border-radius: 15px;
+  }
