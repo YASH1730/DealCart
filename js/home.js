@@ -24,13 +24,23 @@ function showInfo(params) {
 }
 
 function loader(){
-  setInterval(() => {
-    let loader = document.getElementById('loader-container');
-    let supe = document.getElementById('super-container');
-    loader.style.visibility = "hidden";
-    loader.style.position = "absolute";
-    supe.style.visibility = "visible";
-  }, 1500);
+  let supe = document.getElementById('super-container');
+  
+  console.log(typeof(sessionStorage.getItem("Load")))
+  
+  if(sessionStorage.getItem("Load") === null)
+  {
+    let Loader = document.getElementById('loader-container');
+    console.log("i am loading !!!")
+    Loader.style.visibility = "visible";
+    setInterval(() => {
+      Loader.style.visibility = "hidden";
+      supe.style.visibility = "visible";
+      sessionStorage.setItem("Load",true)
+    }, 1500);
+  }
+  else{
+  supe.style.visibility = "visible";}
 }
 
 

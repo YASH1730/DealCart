@@ -2,7 +2,7 @@
 .reg-container{
     display: grid;
     margin-top:3%;
-    height: 70vh;
+    height: 80vh;
     grid-template-columns: 40% 10% 40%;
     justify-content: center;
     align-items: center;

@@ -5,8 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  <script src="../js/cart.js" defer></script>
+    <title>Cart</title>
 
     <style>
       <?php
@@ -59,7 +58,7 @@
     </div>
   </div>
       
-      <button class="checkout">Checkout</button>
+      <button onclick = 'checkout()' class="checkout">Checkout</button>
 
 </div>
 
@@ -84,5 +83,6 @@
 
 include "./footer.php";?>
   </body>
+  <script src="../js/cart.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </html>

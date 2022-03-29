@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 
 
 // sql to create cart table 
-$creatCoustomer = "CREATE TABLE cart (
+$cart = "CREATE TABLE cart (
   pname VARCHAR(30) NOT NULL,
   customer VARCHAR(30) NOT NULL,
   price VARCHAR(50),
@@ -34,11 +34,37 @@ $creatCoustomer = "CREATE TABLE coustomer (
     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     )";
     
-    // if ($conn->query($creatCoustomer) === TRUE) 
-    //   echo "Tablecreated successfully";
-    // else 
-    //   echo "Error creating table: " . $conn->error;
+    
+// session table this manages the log in and log out of the coustomers in the app 
+
+$logSession = "CREATE TABLE log_Sessions (
+      email VARCHAR(50),
+      reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+      )";
+
+
+// check the tables is exist in the database or not 
+
+$table_array = array("logSession"=>$logSession,"cart"=>$cart,"coustomer"=>$coustomer);
+
+// arrays of tables
+// foreach($table_array as $key => $value) { 
+
+//     $check_the_table_exists = "SHOW TABLES LIKE '".$key."'";
+
+//     if ($result = $conn->query($check_the_table_exists)) {
+//       if($result->num_rows == 1) {
+//       echo "Table exists";
+//       }
+
+//       else {
+//       if ($conn->query($value) === TRUE) 
+//           echo "Tablecreated successfully";
+//         else 
+//           echo "Error creating table: " . $conn->error;
+//     }
+//     }  
+//   }
     
 // $conn->close();
-
 ?>

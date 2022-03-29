@@ -47,7 +47,7 @@ $("#reg-form").submit((e)=>{
         success: function (response) {
 
           if(response != "http://localhost/College%20Project/php/home.php"){
-            console.log(response);
+            
             let al = document.getElementById('alert');
             al.style.display = "block";
             al.style.color = "red";
@@ -55,7 +55,11 @@ $("#reg-form").submit((e)=>{
             
           }
           else
-              window.location.href=response;
+          {
+            localStorage.setItem('isLogin',true);
+            localStorage.setItem('email',email);
+            window.location.href=response;
+          }
         }
       });
     }
@@ -92,8 +96,13 @@ $("#log-form").submit((e)=>{
         url: "http://localhost/College%20Project/server.php",
         data: data,
         success: function (response) {
+          console.log(response)
           if (response == "http://localhost/College%20Project/php/home.php")
+          {
+            localStorage.setItem('isLogin',true);
+            localStorage.setItem('email',email);
             window.location.href = response;
+          }
           else
             alert(response);
          

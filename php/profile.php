@@ -58,6 +58,11 @@
         <img src="../images/profile/location.svg" alt="">
         <span>Address</span>
     </div>
+
+    <div class="item" onclick = 'logout()'>
+        <img src="../images/profile/logout.svg" alt="">
+        <span>Logout</span>
+    </div>
 </div>
 <div id = "modal" >
     <div id="info"  class="animate__animated animate__fadeInDown" style = "display : none; "  ><small onclick = 'c()'> &#x274C;</small></div>
@@ -94,5 +99,6 @@ include "./footer.php";?>
 <!-- JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="../js/profile.js"></script>
+<script src="../js/global.js"></script>
 
 </html>

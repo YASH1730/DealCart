@@ -2,6 +2,7 @@
 var taxRate = 0.05;
 var shippingRate = 15.00; 
 var fadeTime = 300;
+var total = 0;
 
 
 $(window).load(()=>{
@@ -18,6 +19,7 @@ $('.product-removal button').click( function() {
 });
 
 
+
 /* Recalculate cart */
 function recalculateCart()
 {
@@ -32,7 +34,7 @@ function recalculateCart()
   /* Calculate totals */
   var tax = subtotal * taxRate;
   var shipping = (subtotal > 0 ? shippingRate : 0);
-  var total = subtotal + tax + shipping;
+  total = subtotal + tax + shipping;
   
   /* Update totals display */
   $('.totals-value').fadeOut(fadeTime, function() {
@@ -124,6 +126,19 @@ function getCartItem() {
     }
   });
   
+}
+
+function checkout() {
+  let data  ={total : total, email : localStorage.getItem('email'),request: "checkout"}
+
+  $.ajax({
+    url: "http://localhost/College%20Project/server.php",
+    type: "post",
+    data:data,
+    success: function (response) {
+      window.location = response;
+    }
+  });
 }
 
 getCartItem();

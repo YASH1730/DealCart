@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<footer  class="text-center text-white mt-5" style="background-color: #04151f; color : withe;">
+<footer  class="text-center text-white mt-5 " style="background-color: #04151f; color : withe;">
   <!-- Grid container -->
   <div class="container pt-4">
     <!-- Section: Social media -->

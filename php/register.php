@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Register</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
  
@@ -39,7 +39,7 @@ include "./nav.php" ?>
 <div id = "afm" class = "position-absolute w-100">
 </div>
 
-<div class="reg-container">
+<div class="reg-container mb-5">
   
   <!-- side image -->
   <div class="reg-photo"><img class = "img-fluid" src="../images/log_reg/reg.svg" alt=""></div>
@@ -97,10 +97,12 @@ include "./nav.php" ?>
 </div>
 
 <!-- end form -->
-
+<!-- footer -->
+<?php
+include "./footer.php" ?>
 
 </body>
-<script src="../js/register.js"></script>
+<script src="../js/register-login.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../js/notify.js"></script>
 <script src="../js/notify.min.js"></script>

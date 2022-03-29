@@ -552,3 +552,13 @@ textarea{
 #limit{
   display: none;
 }
+
+
+#loader-container{
+  visibility:hidden; 
+  position: absolute;
+}
+
+#super-container{
+  visibility: hidden;
+}

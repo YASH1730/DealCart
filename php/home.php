@@ -25,12 +25,11 @@
   <body>
 
   <!-- loader -->
-  <div id = "loader-container" style = "visibility:visible; 
-    position: sticky;"  >
-    <div class="loader"></div>
-  </div>
+      <div id = "loader-container"  >
+        <div class="loader"></div>
+      </div>
 
-<div id = "super-container" class  = "animate__animated animate__fadeIn" style = "visibility:hidden;>
+<div id = "super-container" class  = "animate__animated animate__fadeIn">
     <!-- nav bar -->
     <!-- up arrow -->
 

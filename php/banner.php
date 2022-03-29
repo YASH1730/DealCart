@@ -31,7 +31,7 @@
       <div class="carousel-caption  d-md-block">
         <h5>NEW WAY TO PURCHASE YOUR PRODUCT</h5>
         <p style = "font:bolder;" >"&nbsp;A shop that has it all!!!"</p>
-        <a href = "http://localhost/College%20Project/php/register.php" class="btn btn-primary">Shop Now</a>
+        <a onclick = 'Check("http://localhost/College%20Project/php/log.php","#categories")' class="btn btn-primary">Shop Now</a>
       </div>
     </div>
     <div class="carousel-item">
@@ -39,7 +39,7 @@
       <div class="carousel-caption d-md-block">
         <h5>GET YOUR GROCERIES FROM YOUR NEARBY STORES</h5>
         <p>"&nbsp;All you need under one roof."</p>
-        <a href = "http://localhost/College%20Project/php/register.php" class="btn btn-primary">Shop Now</a>
+        <a herf = "#categories" onclick = 'Check("http://localhost/College%20Project/php/log.php","#categories")' class="btn btn-primary">Shop Now</a>
       </div>
     </div>
     <div class="carousel-item">
@@ -47,7 +47,7 @@
       <div class="carousel-caption  d-md-block">
         <h5>NOW SHOP WITHOUT WORRYING ABOUT THE PRICES</h5>
         <p>"&nbsp;Shop, Relax, Enjoy!!!"</p>
-        <a href = "http://localhost/College%20Project/php/register.php" class="btn btn-primary">Shop Now</a>
+        <a herf = "#categories" onclick = 'Check("http://localhost/College%20Project/php/log.php","#categories")' class="btn btn-primary">Shop Now</a>
       </div>
     </div>
   </div>
@@ -62,4 +62,5 @@
 </div>
 </div>
 </body>
+<script src="../js/global.js"></script>
 </html>

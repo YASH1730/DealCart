@@ -1,7 +1,49 @@
 <?php
 include "./database/connect.php";
-?>
-<?php
+session_start();
+
+// to check the user is looged in or not 
+
+function checkUserLog($email,$conn)
+{
+   
+  $inserting_session = "INSERT INTO log_Sessions (email) VALUES ('$email')";
+
+  $check_session = "SELECT * FROM log_Sessions WHERE email = '$email'";
+
+  $result  = $conn->query($check_session);
+
+  if($result->num_rows != 0)
+      return FALSE;
+  else{
+    if($conn->query($inserting_session))
+      return TRUE;
+    else
+      return FALSE;
+
+  } 
+    
+}
+
+// get logout
+
+function logout($email,$conn)
+{
+   
+  $deleting_session = "DELETE FROM log_Sessions WHERE email = '$email'";
+
+  if($conn->query($deleting_session) === TRUE)
+  {
+    return TRUE;
+  }
+  else{
+      return FALSE;
+  } 
+
+}
+
+
+
 
 //encrypt decrypt
 
@@ -51,7 +93,10 @@ if($_POST['request'] == "register"){
                     `email`, `pass`, `addres`) VALUES ('$fname','$lname', '$email', '$pass', '$address');";
                         
                         if ($conn->query($insertCoustomerData) === TRUE) 
-                        echo "http://localhost/College%20Project/php/home.php";
+                        {
+                          echo "http://localhost/College%20Project/php/home.php";
+                          exit;
+                        }
                         else 
                         echo "Error inserting data: " . $conn->error;
                         
@@ -64,10 +109,8 @@ if($_POST['request'] == "register"){
 
         }
 // end register function       
-
-
-    // Longin function
-        else if ($_POST['request'] == "login")
+// Longin function
+else if ($_POST['request'] == "login")
         {
             $email = $_POST['email'];
             $pass = $_POST['pass'];
@@ -77,28 +120,35 @@ if($_POST['request'] == "register"){
             // quer for checking the email is alredy registered or not
 
             $checkEmailRegisterd = "SELECT * FROM coustomer WHERE email ='$email';";
+           
             $result  = $conn->query($checkEmailRegisterd);
-
-            if($result->num_rows != 0)
-                {
-                        $row = $result->fetch_assoc();
-                       
-                        $dpass =  decryptPass($row['pass']);
-
-                        if($dpass == $pass)
-                            echo "http://localhost/College%20Project/php/home.php";
-                        else 
-                            echo "sorry worng pass".$dpass;
-                }
-            else{
-                        echo "Invalid Credentials !!!";
-                }
-
-
             
+            if($result->num_rows != 0)
+            {
+              $row = $result->fetch_assoc();
+              
+              $dpass =  decryptPass($row['pass']);
+              
+              if($dpass == $pass)
+              {
+
+                if(checkUserLog($email,$conn) === TRUE)
+                {
+               echo "http://localhost/College%20Project/php/home.php";
+                  exit;
+                }
+                else
+                echo "Already Log-In";
+              
+              }
+              else 
+                  echo "sorry worng pass".$dpass;
+            }
+            else
+                echo "Invalid Credentials !!!";    
             $conn->close();
         }
-        
+               
         // end  Longin function
         
         //show category
@@ -220,7 +270,7 @@ else if($_POST["request"] == "cartDetails")
 
         }
 
-        else if($_POST['request'] == "removeItem")
+else if($_POST['request'] == "removeItem")
         { 
           $pname  = $_POST['pname'];
           $customer = $_POST['cname'];
@@ -234,11 +284,32 @@ else if($_POST["request"] == "cartDetails")
         }
 
 
-        else{
+else if ($_POST['request'] == "logout")
+{
+  $email = $_POST['email'];
+
+          if(logout($email,$conn) === TRUE)
+          {
+            echo "http://localhost/College%20Project/php/home.php";
+          }
+          else
+           echo "Already Log Out";
+          
+           $conn->close();
+          }
+else if ($_POST['request'] == "checkout")
+{
+  $_SESSION['total'] = $_POST['total'];
+  $_SESSION['email'] = $_POST['email'];
+  echo "http://localhost/College%20Project/php/pay.php";
+
+}
+// last else
+else{
             echo "Invalid Request !!!";
             $conn->close();
-        }
-   
-   
+        } 
+
+
     
 ?>
