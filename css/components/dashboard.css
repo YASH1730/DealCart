@@ -1,0 +1,104 @@
+
+
+.heading {
+    padding: 15px;
+}
+
+.topCardContainer{
+    display: grid;
+    grid-template-columns: 30% 30% 30% ;
+    column-gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.items{
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.151);
+    display: flex;
+    border-radius: 20px;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.items span,strong{
+    padding: 5px 0 5px 0;
+    color: white;
+    font-size: larger;
+}
+
+
+
+#card1{
+    background-color: rgb(4, 160, 160);
+}
+
+#card2{
+    background-color: rgb(219, 139, 85);
+}
+
+#card3{
+    background-color: rgb(44, 148, 62);
+}
+
+
+.secCardContainer{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% ;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+}
+
+.secitems{
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.144);
+    display: flex;
+    border-radius: 10px;
+    padding: 10px 0 10px 0 ;
+    text-align: center;
+    gap: 20px;
+}
+
+.secitems strong{
+    color: black;
+}
+
+.textHolder{
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+}
+
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 100%;
+    margin-left: 5%;
+}
+
+.n1{
+    background-color: rgb(245, 176, 150);
+}
+
+.n2{
+    background-color: rgb(160 241 249);
+}
+
+.n3{
+    background-color: rgb(60, 202, 102);
+}
+.n4{
+    background-color: rgb(245, 173, 79);
+}
+
+.tableContainer{
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.144);
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 90%;
+    overflow-x: scroll;
+}

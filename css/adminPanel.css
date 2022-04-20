@@ -1,0 +1,51 @@
+.topContainer{
+    background-color: #04151F;
+    color: white;
+    padding: 5px;
+}   
+
+.topContainer h2 {
+    padding: 3px;
+}
+
+.sideContainer{
+    /* padding-top: 20px ; */
+    width: 200px;
+    background-color: #04151F;
+    color: white;
+    min-height: 90vh;
+    text-align: center;
+    
+}
+
+.sideContainer h5{
+    font-weight: 700;
+    padding: 20px 0 20px 0;
+    text-transform: uppercase;
+}
+
+.sideContainer h5:hover{
+    background-color: #eb5d1e;
+}
+
+
+.sideContainer button {
+    margin-top: 60%;
+    background-color: #eb5d1e !important;
+}
+
+.sideContainer a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.mainContainer{
+    display: grid;
+    grid-template-columns: 200px auto ;
+
+}
+
+.displayConatiner{
+    max-height: 90vh;
+    overflow-y: scroll;
+}

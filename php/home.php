@@ -30,8 +30,9 @@
       </div>
 
 <div id = "super-container" class  = "animate__animated animate__fadeIn">
-    <!-- nav bar -->
-    <!-- up arrow -->
+  <!-- up arrow -->
+  
+  <!-- nav bar -->
 
     <?php
 include "./nav.php" ?>

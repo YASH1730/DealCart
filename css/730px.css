@@ -77,6 +77,18 @@ nav svg{
     height: 40px;
 }
 
+.topCardContainer{
+  grid-template-columns: 80%;
+  gap: 20px;
+}
+
+.secCardContainer{
+
+  grid-template-columns: 72%;
+
+
+}
+
   }
 
   @media screen and (max-width : 625px) {
