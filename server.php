@@ -235,7 +235,8 @@ else if($_POST["request"] == "addtocart")
 else if($_POST["request"] == "cartDetails")
         {
 
-          $getAllCartItem = "SELECT * FROM `cart`;";
+          $email = $_POST['email'];
+          $getAllCartItem = "SELECT * FROM cart where customer = '$email';";
           $result = $conn->query($getAllCartItem);
 
           if($result->num_rows != 0)
@@ -265,6 +266,8 @@ else if($_POST["request"] == "cartDetails")
                 </div>';
               }
           }
+          else 
+            echo "<center class='product' ><h1>No product added yet !!!</h1></center>";
           
 
 
@@ -304,6 +307,81 @@ else if ($_POST['request'] == "checkout")
   echo "http://localhost/College%20Project/php/pay.php";
 
 }
+else if ($_POST['request'] == "order")
+{
+     
+  $email = $_POST['email'];
+  
+          $getAllCartItem = "SELECT * FROM cart where customer = '$email';";
+          $deleteAllCartItem = "DELETE FROM cart where customer = '$email';";
+     
+
+          $result = $conn->query($getAllCartItem);
+          
+          if($result->num_rows != 0)
+          {
+            while($row = $result->fetch_assoc())
+              {   
+                  $pname = $row['pname'];
+                  $customer = $row['customer'];
+                  $price = $row['price'];
+                  $pimg = $row['pimg'];
+                  $qty = $row['qty'];
+                  
+                  $insertOrderData = "INSERT INTO orders (`pname`, `customer`, `qty`, `price`, `pimg`) VALUES ('$pname', '$customer','$qty', '$price','$pimg');";
+    
+                  
+                  if($conn->query($insertOrderData) === TRUE)
+                    echo "Data Successfully Added";
+                  else
+                    echo "Sorry !!!";
+                  
+                
+              }
+          }
+
+          $conn->query($deleteAllCartItem);
+
+        
+}
+
+else if ($_POST['request'] == "getOrder")
+{
+  $email = $_POST['email'];
+  $getAllOrderItem = "SELECT * FROM orders where customer = '$email';";
+
+  echo $getAllOrderItem;
+  
+  $result = $conn->query($getAllOrderItem);
+          
+  if($result->num_rows != 0)
+  {
+    while($row = $result->fetch_assoc())
+      {   
+          $pname = $row['pname'];
+          $customer = $row['customer'];
+          $price = $row['price'];
+          $pimg = $row['pimg'];
+          $qty = $row['qty'];
+
+          echo '<small onclick = c()> &#x274C;</small><h3>Order</h3>   <div class="order-container">
+                <div class="o-item">
+                    <div>
+                    <img src="../images/product/'.$pimg.'" class="img-fluid" alt="" srcset=""></div>
+
+                    <div><p><h6>'.$pname.'</h6><span>Quentity : 1</span><br><span>Price : '.$price.'</span></p></div>
+                    
+                    <div>'.$qty.'</div>
+                </div>
+                </div>';
+      }
+  }
+  else
+    print_r($result);
+
+
+}
+
 // last else
 else{
             echo "Invalid Request !!!";

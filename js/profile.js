@@ -28,6 +28,22 @@ function show(params) {
     
 }
 
+function order(params) {
+    let data  ={request:"getOrder",email : localStorage.getItem('email')}
+  $.ajax({
+    type: "post",
+    data:data,
+    url: "http://localhost/College%20Project/server.php",
+    success: function (response) {
+      console.log(response)
+      let cart = document.getElementById('details');
+      cart.innerHTML += response;
+      
+    }
+  });
+    
+}
+
 function c(){
     let info = document.getElementById('info');
     let back = document.getElementById('modal');

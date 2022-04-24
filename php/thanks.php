@@ -11,4 +11,6 @@
 <body>
     <h1 class = 'text-center mt-5 ' >Thank You For Shopping From Deal Cart !!! &#128512;</h1>
 </body>
+<script src="../js/thanks.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </html>

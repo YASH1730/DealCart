@@ -113,13 +113,14 @@ function removefromDB() {
 // fetching all cart data from db
 
 function getCartItem() {
-  // console.log('i am in');
-  let data  ={request:"cartDetails"}
+  console.log(localStorage.getItem('email'));
+  let data  ={request:"cartDetails",email : localStorage.getItem('email')}
   $.ajax({
     type: "post",
     data:data,
     url: "http://localhost/College%20Project/server.php",
     success: function (response) {
+      console.log(response)
       let cart = document.getElementById('cart-container');
       cart.innerHTML += response;
       

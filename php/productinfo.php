@@ -61,40 +61,37 @@ include "./nav.php" ?>
         $pImg = $row['IMAGES'];
         $review = $row['REVIEW'];
         $review = explode("\n",$review);
-
+      }
+    }
         //render the product data dynemically
-
-        echo '
+      ?>
         <div class="product-container mt-4">
             
             <!-- product img -->
-            <div class="p-items p-img"><img class = "img-fluid" src="../images/product/'.$pImg.'" alt=""></div>
+            <div class="p-items p-img"><img class = "img-fluid" src = <?php echo "../images/product/$pImg" ?> alt=""></div>
             
             <!-- product - deatails -->
             <div class="p-items p-details p-3">
                 
-                <h3>'.$pname.'</h3>
+                <h3><?php echo "$pname"; ?></h3>
                 
-                <label for="qty" class = "mt-2" >MRP : <strong id = "qty">'.$pMrp.'</strong></label>
+                <label for="qty" class = "mt-2" >MRP : <strong id = "qty"><?php echo "$pMrp" ?></strong></label>
         
-                <label for="qty">Net Wight : <strong id = "qty">'.$pQty.'</strong></label>
+                <label for="qty">Net Wight : <strong id = "qty"><?php echo "$pQty"; ?></strong></label>
         
-                <label for="qty">Category : <strong id = "qty">'.$pCat.'</strong></label>
-                
-                
-                <label for="price-offer">Price Offers</label>
-                
-                <select class="form-select form-select-sm mb-3" aria-label=".form-select-lg example">
-                    <option selected>Select Price Offer</option>
-                    <option value="1">'.$pPrice[0].'</option>
-                    <option value="2">'.$pPrice[1].'</option>
-                    <option value="3">'.$pPrice[2].'</option>
-                    <option value="3">'.$pPrice[3].'</option>
+                <label for="qty">Category : <strong id = "qty"><?php echo "$pCat"; ?></strong></label>
+
+                <select class="form-select form-select-sm mb-3 priceSelect" id = 'price' aria-label=".form-select-lg example">
+                    <!-- <option selected>Select Price Offer</option> -->
+                    <option selected value= <?php echo "$pPrice[0]"; ?>><?php echo "$pPrice[0]"; ?></option>
+                    <option value= <?php echo "$pPrice[1]"; ?>><?php echo "$pPrice[1]"; ?></option>
+                    <option value= <?php echo "$pPrice[2]"; ?>><?php echo "$pPrice[2]"; ?></option>
+                    <option value= <?php echo "$pPrice[3]"; ?>><?php echo "$pPrice[3]"; ?></option>
                 </select>
                 
                     <div class="input-group input-group-sm mb-2">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Quantity</span>
-                        <input type="number" class="form-control" value = 1 aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        <input type="number" class="form-control quentity" id = 'quentity' value = 1 aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                     </div>
             </div>
             
@@ -103,30 +100,22 @@ include "./nav.php" ?>
                 <label for="qty" class = "mt-2">Plan Benifits : <strong id = "qty">10% off on total bill</strong></label>
                 <label for="qty">Other Benifits : <strong id = "qty">Free delivery on Sat & Sun.</strong></label>
                 <label for="qty">Delivery : <strong id = "qty">Only 15 mins away form your place. </strong></label>
-                <button class="btn mt-2 btn-primary my-btn" >Add To Cart</button>
-                <button class="btn mt-2 btn-primary my-btn">Buy Now</button>
+                <button class="btn mt-2 btn-primary my-btn" onclick = 'addToCart(<?php echo json_encode($row); ?>)'  >Add To Cart</button>
+                <button class="btn mt-2 btn-primary my-btn" onclick = 'buyNow(<?php echo json_encode($row); ?>)'>Buy Now</button>
                 </div>
                 </div>
+                
+              <label for="price-offer">Price Offers</label>
                 <h3 id= "yourAcc" >Product Review</h3>
                 
                 
                 <div class = "p-4 w-50 ml-5">
                     
-                    <p class = "p-2"><strong class = " d-block">Rahul</strong>'.$review[0].'</p>
+                    <p class = "p-2"><strong class = " d-block">Rahul</strong><?php echo "$review[0]"; ?></p>
                     
-                    <p class = "p-2"><strong class = " d-block">Rahul</strong>'.$review[1].'</p>
+                    <p class = "p-2"><strong class = " d-block">Rahul</strong><?php echo "$review[1]"; ?></p>
                 </div>
-        ';
-      }
-      else
-          echo "sorry";
-
-          
-
-    }
-  else
-    echo "sorry url error";
- ?>
+        
 
 
  <!-- Customur review -->
@@ -156,8 +145,11 @@ include "./nav.php" ?>
 
 <?php 
 
-include "./footer.php";?>
+include "./footer.php";
+
+?>
 
 </body>
-<script src="../js/productinfo"></script>
-</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../js/productinfo.js"></script>
+ </html>

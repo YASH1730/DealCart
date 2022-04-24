@@ -49,7 +49,7 @@
     </div>
     
     
-    <div class="item" onclick = "show('Order')">
+    <div class="item" onclick = "order()">
         <img src="../images/profile/your_order.svg" alt="">
         <span>Your Order</span>
     </div>
