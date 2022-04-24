@@ -48,7 +48,7 @@ function getProduct() {
           response = JSON.parse(response);
           let table_body = document.getElementById('table-body')
           
-          table_body.innerHTML = " "; 
+          table_body.innerHTML = " " 
           
           response.map((data)=>{
               
