@@ -36,8 +36,18 @@ function order(params) {
     url: "http://localhost/College%20Project/server.php",
     success: function (response) {
       console.log(response)
-      let cart = document.getElementById('details');
-      cart.innerHTML += response;
+      let info = document.getElementById('info-order');
+            let back = document.getElementById('modal-order');
+            
+            info.style.animation = "none";
+            setTimeout(() => {
+                info.style.animation = "";
+                info.style.display = "block";
+                back.style.display = "block";
+                
+                info.innerHTML = response;
+                
+            }, 3);
       
     }
   });
@@ -47,8 +57,14 @@ function order(params) {
 function c(){
     let info = document.getElementById('info');
     let back = document.getElementById('modal');
+    let info_order = document.getElementById('info-order');
+    let back_order = document.getElementById('modal-order');
+    
     back.style.display = "none";
     info.style.display = "none";
+    
+    back_order.style.display = "none";
+    info_order.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it

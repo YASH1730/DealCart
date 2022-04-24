@@ -1,0 +1,14 @@
+.tableContainer{
+    overflow: scroll;
+    height: 500px;
+}
+
+.searchContainer{
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+    gap : 20px;
+}
+.heading {
+    padding: 15px;
+}

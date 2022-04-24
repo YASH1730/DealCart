@@ -251,7 +251,7 @@ else if($_POST["request"] == "cartDetails")
                   <div class="product-details">
                     <div class="product-title">'.$row['pname'].'</div>
                     <div style = "color : transparent;">'.$row['customer'].'</div>
-                    <p class="product-description">Who doesnt like lamb and rice? Weve all hit the halal cart at 3am while quasi-blackout after a night of binge drinking in Manhattan. Now its your dogs turn!</p>
+                    
                   </div>
                   <div class="product-price"><p class = "price">'.$row['price'].'</p></div>
                   <div class="product-quantity">
@@ -350,7 +350,6 @@ else if ($_POST['request'] == "getOrder")
   $email = $_POST['email'];
   $getAllOrderItem = "SELECT * FROM orders where customer = '$email';";
 
-  echo $getAllOrderItem;
   
   $result = $conn->query($getAllOrderItem);
           
@@ -369,17 +368,86 @@ else if ($_POST['request'] == "getOrder")
                     <div>
                     <img src="../images/product/'.$pimg.'" class="img-fluid" alt="" srcset=""></div>
 
-                    <div><p><h6>'.$pname.'</h6><span>Quentity : 1</span><br><span>Price : '.$price.'</span></p></div>
+                    <div><p><h6>'.$pname.'</h6><span>Quentity : '.$qty.'</span><br><span>Price : '.$price.'</span></p></div>
                     
-                    <div>'.$qty.'</div>
                 </div>
                 </div>';
       }
   }
   else
-    print_r($result);
+  echo '<small onclick = c()> &#x274C;</small><h3>Order</h3>   <div class="order-container">
+    No Orders Yet
+  </div>';
 
 
+
+}
+
+else if ($_POST['request'] == "dashboardOrder")
+{
+  $getAllOrderItem = "SELECT * FROM orders ;";
+  
+  $result = $conn->query($getAllOrderItem);
+
+  $data = array();
+          
+  if($result->num_rows != 0)
+  {
+    while($row = $result->fetch_assoc())
+
+    {
+        array_push($data,$row);
+    }
+    
+    echo json_encode($data);
+  }
+
+}
+
+else if ($_POST['request'] == "productList")
+{
+  if(isset($_POST['searchVal']))
+  {
+
+    $search = $_POST['searchVal'];
+
+    $getAllOrderItem = "SELECT * FROM items where pname LIKE  '%$search%';";
+    
+    $result = $conn->query($getAllOrderItem);
+    // echo "$getAllOrderItem";
+  $data = array();
+          
+  if($result->num_rows != 0)
+  {
+    while($row = $result->fetch_assoc())
+    
+    {
+      array_push($data,$row);
+    }
+    
+    echo json_encode($data);
+  }
+
+  }
+  else{
+
+    $getAllOrderItem = "SELECT * FROM items ;";
+    
+    $result = $conn->query($getAllOrderItem);
+    
+  $data = array();
+          
+  if($result->num_rows != 0)
+  {
+    while($row = $result->fetch_assoc())
+    
+    {
+      array_push($data,$row);
+    }
+    
+    echo json_encode($data);
+  }
+}
 }
 
 // last else

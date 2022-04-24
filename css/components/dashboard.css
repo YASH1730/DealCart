@@ -100,5 +100,7 @@
     padding: 10px;
     border-radius: 5px;
     max-width: 90%;
-    overflow-x: scroll;
+    overflow: scroll;
+    height: 500px;
+
 }

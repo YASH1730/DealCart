@@ -1,4 +1,3 @@
-console.log('adminpanel ')
 
 function page(e){
     e.preventDefault()

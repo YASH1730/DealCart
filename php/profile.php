@@ -65,7 +65,10 @@
     </div>
 </div>
 <div id = "modal" >
-    <div id="info"  class="animate__animated animate__fadeInDown" style = "display : none; "  ><small onclick = 'c()'> &#x274C;</small></div>
+    <div id="info"  class="animate__animated animate__fadeInDown " style = "display : none; "  ></div>
+</div>
+<div id = "modal-order" >
+    <div id="info-order"  class="animate__animated animate__fadeInDown " style = "display : none; "  ></div>
 </div>
 
 
