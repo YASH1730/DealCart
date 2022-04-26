@@ -52,14 +52,14 @@ include "./nav.php" ?>
         $row = $result->fetch_assoc();
         $pname = $row['pname'];
 
-        $pPrice = $row['PRICE'];
+        $pPrice = $row['price'];
         $pPrice = explode(",",$pPrice);
         
         $pMrp = $row['MRP'];
         $pQty = $row['QTY'];
-        $pCat = $row['CATEGORY'];
-        $pImg = $row['IMAGES'];
-        $review = $row['REVIEW'];
+        $pCat = $row['cetegory'];
+        $pImg = $row['image'];
+        $review = $row['review'];
         $review = explode("\n",$review);
       }
     }

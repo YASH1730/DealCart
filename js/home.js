@@ -146,7 +146,7 @@ let count = 1;
             let price  = element.innerText.split('Rs.')[1];
             price = price.split('ADD')[0];
             console.log(slice,pname,pimg,price);
-            let data  = {pimg:pimg,pname: pname,price : price,customer : localStorage.getItem('email'),request : "addtocart",qty:1};
+            let data  = {pimg,pname,price,customer : localStorage.getItem('email'),request : "addtocart",qty:1};
             $.ajax({
                 type: "post",
                 url: "http://localhost/College%20Project/server.php",

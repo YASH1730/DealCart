@@ -166,9 +166,9 @@ else if ($_POST['request']== 'catname')
             {
                 while($row = $result->fetch_assoc()){
 
-                    $pimg = $row['IMAGES'];
+                    $pimg = $row['image'];
                     $pname = $row['pname'];
-                    $pprice = $row['PRICE'];
+                    $pprice = $row['price'];
                     $min = explode(",",$pprice);
                     $min = min($min);
 
@@ -221,6 +221,8 @@ else if($_POST["request"] == "addtocart")
           $cemail  = $_POST['customer'];
           $pimg  = $_POST['pimg'];
           $qty  = $_POST['qty'];
+
+          
 
           $addToCart = "INSERT INTO `cart` (`pname`, `customer`, `price`, `pimg`, `qty`) VALUES ('$pname', '$cemail', '$pprice','$pimg','$qty');";
           
