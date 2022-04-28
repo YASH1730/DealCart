@@ -406,6 +406,29 @@ else if ($_POST['request'] == "dashboardOrder")
 
 }
 
+else if ($_POST['request'] == "searchOrder")
+{
+  $search = $_POST['searchVal'];
+
+  $getAllOrderItem = "SELECT * FROM orders where reg_date LIKE  '%$search%';";
+
+  $result = $conn->query($getAllOrderItem);
+
+  $data = array();
+          
+  if($result->num_rows != 0)
+  {
+    while($row = $result->fetch_assoc())
+
+    {
+        array_push($data,$row);
+    }
+    
+    echo json_encode($data);
+  }
+
+}
+
 else if ($_POST['request'] == "productList")
 {
   if(isset($_POST['searchVal']))

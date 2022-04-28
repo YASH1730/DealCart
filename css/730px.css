@@ -11,6 +11,13 @@
 
 @media screen and (max-width: 800px) {
 
+ .service-container{
+
+  grid-template-columns: 80%;
+
+
+ }
+
 #yourAcc{
   font-size: 3vw;
 

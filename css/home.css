@@ -62,8 +62,7 @@
   display: grid;
   grid-template-columns: repeat(4,20%);
   justify-content: center;
-  column-gap: 10px;
-  height: 150px;
+  gap: 50px;
   /* margin-bottom: 2%; */
   /* border : 2px solid black; */
 
@@ -78,16 +77,13 @@
 }
 
 .ser-item img{
-  /* position: absolute; */
-  width: 40%;
-  /* border-radius: 100px; */
+  width: 15vw;
   border: none;
   background: transparent;
-  /* z-index: 1; */
 }
 
 .ser-item img:hover{
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 

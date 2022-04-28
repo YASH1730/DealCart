@@ -26,9 +26,10 @@
         <button type="submit" id='search-button'><i class="fa fa-search "></i></button>
     </form>
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#service">Services</a>
-    <a href="#categories">Categories</a>
-    <a href="#contact">About Us</a>
+    <a href="http://localhost/College%20Project/php/home.php">Home</a>
+    <a href="http://localhost/College%20Project/php/home.php#service">Services</a>
+    <a href="http://localhost/College%20Project/php/home.php#categories">Categories</a>
+    <a href="http://localhost/College%20Project/php/home.php#contact">About Us</a>
   </div>
   
   <!-- END Links -->

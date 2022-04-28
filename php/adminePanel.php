@@ -43,8 +43,8 @@
         <a href = '?page=dashboard' <?php if($_GET['page'] == "dashboard") echo 'class = "active"'; else  ?> ><h5>Dashboard</h5></a>
         <a href = '?page=products'><h5>Products</h5></a>
         <a href = '?page=orders'><h5>Orders</h5></a>
-        <a href = '?page=staff'><h5>Staff</h5></a>
-        <a href = '?page=settings'><h5>Settings</h5></a>
+        <!-- <a href = '?page=staff'><h5>Staff</h5></a>
+        <a href = '?page=settings'><h5>Settings</h5></a> -->
         <button class = 'btn btn-danger logoutBtn' >LogOut</button>
     </div>
     
