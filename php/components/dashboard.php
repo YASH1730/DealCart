@@ -36,7 +36,7 @@
         <div class ='items' id = 'card1'>
             <svg stroke="currentColor" fill="white" stroke-width="0" version="1.1" viewBox="0 0 16 16" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M16 5l-8-4-8 4 8 4 8-4zM8 2.328l5.345 2.672-5.345 2.672-5.345-2.672 5.345-2.672zM14.398 7.199l1.602 0.801-8 4-8-4 1.602-0.801 6.398 3.199zM14.398 10.199l1.602 0.801-8 4-8-4 1.602-0.801 6.398 3.199z"></path></svg>
             <span>Today Order</span>
-            <strong>Rs.300</strong>
+            <strong id = 'totalPrice' ></strong>
         </div>
         
         <div class ='items' id = 'card2'>
@@ -48,7 +48,7 @@
         <div class ='items' id = 'card3'>
         <svg stroke="white" fill="white" stroke-width="0" version="1.1" viewBox="0 0 16 16" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 2h-13c-0.825 0-1.5 0.675-1.5 1.5v9c0 0.825 0.675 1.5 1.5 1.5h13c0.825 0 1.5-0.675 1.5-1.5v-9c0-0.825-0.675-1.5-1.5-1.5zM1.5 3h13c0.271 0 0.5 0.229 0.5 0.5v1.5h-14v-1.5c0-0.271 0.229-0.5 0.5-0.5zM14.5 13h-13c-0.271 0-0.5-0.229-0.5-0.5v-4.5h14v4.5c0 0.271-0.229 0.5-0.5 0.5zM2 10h1v2h-1zM4 10h1v2h-1zM6 10h1v2h-1z"></path></svg>
             <span>Total Seals</span>
-            <strong id = 'totalPrice'></strong>
+            <strong id = 'totalPrice3'></strong>
         </div>
   </div>
 
@@ -108,12 +108,13 @@
       <table class="table table-hover">
         <thead>
             <tr>
-            <th scope="col">id</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Quentity</th>
-            <th scope="col">Order Time/Date</th>
-            <th scope="col">Customer</th>
-            <th scope="col">Price</th>
+            <th scope="col">O-Id</th>
+    <th scope="col">Product Name</th>
+    <th scope="col">Quentity</th>
+    <th scope="col">Price </th>
+    <th scope="col">GST</th>
+    <th scope="col">Total</th>
+    <th scope="col">Order Date</th>
             </tr>
         </thead>
         <tbody id = 'table-body'>

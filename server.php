@@ -30,7 +30,7 @@ function checkUserLog($email,$conn)
 function logout($email,$conn)
 {
    
-  $deleting_session = "DELETE FROM log_Sessions WHERE email = '$email'";
+  $deleting_session = "DELETE FROM log_sessions WHERE email = '$email'";
 
   if($conn->query($deleting_session) === TRUE)
   {
@@ -89,10 +89,10 @@ if($_POST['request'] == "register"){
              if($result->num_rows == 0)
                 {
                     // query to insert the data 
-                    $insertCoustomerData = "INSERT INTO coustomer (`firstname`,`lastname`, 
+                    $insertcoustomerData = "INSERT INTO coustomer (`firstname`,`lastname`, 
                     `email`, `pass`, `addres`) VALUES ('$fname','$lname', '$email', '$pass', '$address');";
                         
-                        if ($conn->query($insertCoustomerData) === TRUE) 
+                        if ($conn->query($insertcoustomerData) === TRUE) 
                         {
                           echo "http://localhost/College%20Project/php/home.php";
                           exit;
@@ -218,27 +218,28 @@ else if($_POST["request"] == "addtocart")
         {
           $pname  = $_POST['pname'];
           $pprice  = $_POST['price'];
-          $cemail  = $_POST['customer'];
+          $cemail  = $_POST['coustomer'];
           $pimg  = $_POST['pimg'];
           $qty  = $_POST['qty'];
-
+          $category  = $_POST['category'];
+      
+          $addToCart = "INSERT INTO `cart` (`pname`, `coustomer`, `price`, `pimg`, `qty`, `category`) VALUES ('$pname', '$cemail', '$pprice','$pimg','$qty','$category');";
           
+          // echo $addToCart;
 
-          $addToCart = "INSERT INTO `cart` (`pname`, `customer`, `price`, `pimg`, `qty`) VALUES ('$pname', '$cemail', '$pprice','$pimg','$qty');";
-          
           // echo $pname.$pprice.$cemail;
           if($conn->query($addToCart) === TRUE)
-            echo "Data Successfully Added";
+            echo "Data Successfumylly Added";
           else
             echo "Sorry !!!";
-          // $conn->close();
+          $conn->close();
         }
 
 else if($_POST["request"] == "cartDetails")
         {
 
           $email = $_POST['email'];
-          $getAllCartItem = "SELECT * FROM cart where customer = '$email';";
+          $getAllCartItem = "SELECT * FROM cart where coustomer = '$email';";
           $result = $conn->query($getAllCartItem);
 
           if($result->num_rows != 0)
@@ -252,7 +253,7 @@ else if($_POST["request"] == "cartDetails")
                   </div>
                   <div class="product-details">
                     <div class="product-title">'.$row['pname'].'</div>
-                    <div style = "color : transparent;">'.$row['customer'].'</div>
+                    <div style = "color : transparent;">'.$row['coustomer'].'</div>
                     
                   </div>
                   <div class="product-price"><p class = "price">'.$row['price'].'</p></div>
@@ -264,7 +265,7 @@ else if($_POST["request"] == "cartDetails")
                       Remove
                     </button>
                   </div>
-                  <div class="product-line-price">'.$row['price'].'</div>
+                  <div class="product-line-price">'.($row['price']*$row['qty']).'</div>
                 </div>';
               }
           }
@@ -278,8 +279,8 @@ else if($_POST["request"] == "cartDetails")
 else if($_POST['request'] == "removeItem")
         { 
           $pname  = $_POST['pname'];
-          $customer = $_POST['cname'];
-          $deleteItem  = "DELETE FROM `cart` WHERE pname = '$pname'  AND customer = '$customer' ;";
+          $coustomer = $_POST['cname'];
+          $deleteItem  = "DELETE FROM `cart` WHERE pname = '$pname'  AND coustomer = '$coustomer' ;";
          
 
           if($conn->query($deleteItem) === TRUE)
@@ -314,35 +315,82 @@ else if ($_POST['request'] == "order")
      
   $email = $_POST['email'];
   
-          $getAllCartItem = "SELECT * FROM cart where customer = '$email';";
-          $deleteAllCartItem = "DELETE FROM cart where customer = '$email';";
-     
+          $getAllCartItem = "SELECT * FROM cart where coustomer = '$email';";
+          $getGST = "SELECT * FROM product_category ;";
+          $deleteAllCartItem = "DELETE FROM cart where coustomer = '$email';";
+          $getOrderId = "SELECT orderId FROM orders
+          ORDER BY orderId DESC
+          LIMIT 1;";
+
+          $orderData = $conn->query($getOrderId);
+          $orderID = '';
+
+          if($orderData->num_rows != 0)
+          {
+              $row = $orderData->fetch_assoc();
+              $arr =  intval(explode('-',$row['orderId'])[1]) + 1;
+              $orderID = "OID-$arr";
+          }
+          else{
+            $orderID = 'OID-1';
+          }
+
+          // echo $orderID;
+
 
           $result = $conn->query($getAllCartItem);
+          
           
           if($result->num_rows != 0)
           {
             while($row = $result->fetch_assoc())
-              {   
-                  $pname = $row['pname'];
-                  $customer = $row['customer'];
-                  $price = $row['price'];
-                  $pimg = $row['pimg'];
-                  $qty = $row['qty'];
-                  
-                  $insertOrderData = "INSERT INTO orders (`pname`, `customer`, `qty`, `price`, `pimg`) VALUES ('$pname', '$customer','$qty', '$price','$pimg');";
-    
-                  
-                  if($conn->query($insertOrderData) === TRUE)
-                    echo "Data Successfully Added";
-                  else
-                    echo "Sorry !!!";
-                  
+            {   
+                $GST = $conn->query($getGST);
+                $pname = $row['pname'];
+                $customer = $row['coustomer'];
+                $price = $row['price'];
+                $pimg = $row['pimg'];
+                $qty = $row['qty'];
+                $category = $row['category'];
+                $afterGST  = $row['price'];
+
+                while($GSTData = $GST->fetch_assoc())
+                {
+                  if($category === $GSTData['CATEGORY'])
+                  {
+                    $price -= ($price/100)*$GSTData['GST'];
+                    $perGST = $GSTData['GST'];
+                    break;
+                  }
+                }
+
+                $insertOrderData = "INSERT INTO orders (`orderId`,`pname`,`customer`, `qty`, `price`, `afterGST`, `pimg`, `category` , `GST`) VALUES ('$orderID','$pname', '$customer','$qty', '$price', '$afterGST' ,'$pimg', '$category', '$perGST');";
+
+                
+                if($conn->query($insertOrderData) !== TRUE)
+                  echo "Sorry !!!";
                 
               }
           }
 
           $conn->query($deleteAllCartItem);
+
+          $getAllOrderItem = "SELECT * FROM orders where orderId = '$orderID';";
+
+          $result = $conn->query($getAllOrderItem);
+
+          $data = array();
+                  
+          if($result->num_rows != 0)
+          {
+            while($row = $result->fetch_assoc())
+              {   
+                  array_push($data,$row);
+                 
+              }
+              echo json_encode($data);
+          }
+
 
         
 }
@@ -354,27 +402,17 @@ else if ($_POST['request'] == "getOrder")
 
   
   $result = $conn->query($getAllOrderItem);
+  $data = array();
           
   if($result->num_rows != 0)
   {
     while($row = $result->fetch_assoc())
       {   
-          $pname = $row['pname'];
-          $customer = $row['customer'];
-          $price = $row['price'];
-          $pimg = $row['pimg'];
-          $qty = $row['qty'];
+        array_push($data,$row);
 
-          echo '<small onclick = c()> &#x274C;</small><h3>Order</h3>   <div class="order-container">
-                <div class="o-item">
-                    <div>
-                    <img src="../images/product/'.$pimg.'" class="img-fluid" alt="" srcset=""></div>
-
-                    <div><p><h6>'.$pname.'</h6><span>Quentity : '.$qty.'</span><br><span>Price : '.$price.'</span></p></div>
-                    
-                </div>
-                </div>';
       }
+      echo json_encode($data);
+
   }
   else
   echo '<small onclick = c()> &#x274C;</small><h3>Order</h3>   <div class="order-container">
@@ -387,7 +425,7 @@ else if ($_POST['request'] == "getOrder")
 
 else if ($_POST['request'] == "dashboardOrder")
 {
-  $getAllOrderItem = "SELECT * FROM orders ;";
+  $getAllOrderItem = "SELECT * FROM orders ORDER BY orderId DESC ;";
   
   $result = $conn->query($getAllOrderItem);
 
@@ -410,7 +448,7 @@ else if ($_POST['request'] == "searchOrder")
 {
   $search = $_POST['searchVal'];
 
-  $getAllOrderItem = "SELECT * FROM orders where reg_date LIKE  '%$search%';";
+  $getAllOrderItem = "SELECT * FROM orders where orderId = '$search';";
 
   $result = $conn->query($getAllOrderItem);
 
@@ -478,7 +516,7 @@ else if ($_POST['request'] == "productList")
 // last else
 else{
             echo "Invalid Request !!!";
-            $conn->close();
+            // $conn->close();
         } 
 
 

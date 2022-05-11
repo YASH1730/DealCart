@@ -44,8 +44,34 @@
 include "./nav.php" ?>
 
     <!-- nav bar End -->
-    <h1 class = 'text-center mt-5 ' >Thank You &#128512;</h1>
-    <h4 class = 'text-center mt-5 ' >Your order will be confirmed shortlly !!! ;</h4>
+    
+    <div class="container">
+      <h2 class = 'text-center mt-5 ' >Thank You</h2>
+
+      <hr>
+
+    <h4  class = 'text-center mb-3 mt-3 '>Order Summary</h4>
+
+    
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Order ID</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+      <th scope="col">GST</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody id = 'table-content'>
+    
+   
+  </tbody>
+</table>
+
+    </div>
+
 </br>
     <div class=" btn btn-danger shoppingButton">
       <a href="http://localhost/College%20Project/php/home.php#categories">Continue Shopping </a>

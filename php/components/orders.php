@@ -29,7 +29,7 @@
 <h4 class = 'heading'>Order</h4>
 <div class="container searchContainer ">
 <div class="input-group">
-  <span class="input-group-text">Search Order By Date</span>
+  <span class="input-group-text">Order ID</span>
   <input type="search"  aria-label="Search Order" class="form-control" id = 'search-bar'>
 </div>
 <button class = 'btn btn-primary' onClick = "getSearchVal()" >Search</button>
@@ -45,11 +45,13 @@
 <table class="table table-hover">
 <thead>
     <tr>
-    <th scope="col">id</th>
+    <th scope="col">O-Id</th>
     <th scope="col">Product Name</th>
     <th scope="col">Quentity</th>
-    <th scope="col">MRP </th>
-    <th scope="col">Dealer</th>
+    <th scope="col">Price </th>
+    <th scope="col">GST</th>
+    <th scope="col">Total</th>
+    <th scope="col">Order Date</th>
     </tr>
 </thead>
 <tbody id = 'table-body'>

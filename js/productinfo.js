@@ -10,7 +10,7 @@ function addToCart(params) {
 
     if (localStorage.getItem('email') !== null) {
 
-        let data = { pimg: params.IMAGES, pname: params.pname, price: price, customer: localStorage.getItem('email'), request: "addtocart", qty: quentity };
+        let data = { pimg: params.image, pname: params.pname, price: price, coustomer: localStorage.getItem('email'), request: "addtocart", qty: quentity, category : params.category  };
 
         console.log(data)
         $.ajax({

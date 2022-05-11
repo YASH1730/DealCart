@@ -1,7 +1,7 @@
 <?php
 
 $servername = "localhost";
-$username = "root";
+$username = "root"; 
 $password = "";
 $dbname = "dealcart";
 
@@ -10,8 +10,12 @@ $dbname = "dealcart";
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
+  echo $conn->connect_error;
   die("Connection failed: " . $conn->connect_error);
 }
+// else {
+//   echo 'database connected';
+// }
 
 
 // sql to create cart table 
@@ -24,7 +28,7 @@ $cart = "CREATE TABLE cart (
   )";
 
 // sql to create coustomer table 
-$creatCoustomer = "CREATE TABLE coustomer (
+$creatCoustomer = "CREATE TABLE customer (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR(30) NOT NULL,
     lastname VARCHAR(30) NOT NULL,
@@ -45,7 +49,7 @@ $logSession = "CREATE TABLE log_Sessions (
 
 // check the tables is exist in the database or not 
 
-$table_array = array("logSession"=>$logSession,"cart"=>$cart,"coustomer"=>$coustomer);
+// $table_array = array("logSession"=>$logSession,"cart"=>$cart,"coustomer"=>$coustomer);
 
 // arrays of tables
 // foreach($table_array as $key => $value) { 

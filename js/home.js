@@ -68,6 +68,7 @@ window.onclick = function (event) {
 
 function renderCat(catName, limit) {
   // console.log(catName,limit);
+  localStorage.setItem('category',catName)
   let data = { catname: catName, request: "catname", limit: limit };
   $.ajax({
     type: "post",
@@ -146,7 +147,7 @@ let count = 1;
             let price  = element.innerText.split('Rs.')[1];
             price = price.split('ADD')[0];
             console.log(slice,pname,pimg,price);
-            let data  = {pimg,pname,price,customer : localStorage.getItem('email'),request : "addtocart",qty:1};
+            let data  = {pimg,pname,price,coustomer : localStorage.getItem('email'),request : "addtocart",qty:1, category : localStorage.getItem('category')};
             $.ajax({
                 type: "post",
                 url: "http://localhost/College%20Project/server.php",

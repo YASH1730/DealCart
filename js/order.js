@@ -19,11 +19,13 @@ function getProduct() {
 
             table_body.innerHTML += `
             <tr>
-                <th scope="row">${data.id}</th>
+                <th scope="row">${data.orderId}</th>
                 <td>${data.pname}</td>
                   <td>${data.qty}</td>
                   <td>${data.price}</td>
-                  <td>${data.reg_date}</td>
+                  <td>${data.GST}</td>
+                  <td>${data.afterGST}</td>
+                  <td>${data.reg_date.split(' ')[0]}</td>
             </tr> `
             
         })
@@ -53,13 +55,15 @@ function getProduct() {
           response.map((data)=>{
               
   
-              table_body.innerHTML += `
+              table_body.innerHTML +=`
               <tr>
-                  <th scope="row">${data.id}</th>
+                  <th scope="row">${data.orderId}</th>
                   <td>${data.pname}</td>
-                  <td>${data.qty}</td>
-                  <td>${data.price}</td>
-                  <td>${data.reg_date}</td>
+                    <td>${data.qty}</td>
+                    <td>${data.price}</td>
+                    <td>${data.GST}</td>
+                    <td>${data.afterGST}</td>
+                    <td>${data.reg_date.split(' ')[0]}</td>
               </tr> `
               
           })

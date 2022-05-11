@@ -68,6 +68,7 @@
     <div id="info"  class="animate__animated animate__fadeInDown " style = "display : none; "  ></div>
 </div>
 <div id = "modal-order" >
+<small id = 'cross' onclick = c()> &#x274C;</small><h3 id = 'heading' >Your Orders</h3>
     <div id="info-order"  class="animate__animated animate__fadeInDown " style = "display : none; "  ></div>
 </div>
 

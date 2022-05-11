@@ -57,7 +57,7 @@ include "./nav.php" ?>
         
         $pMrp = $row['MRP'];
         $pQty = $row['QTY'];
-        $pCat = $row['cetegory'];
+        $pCat = $row['category'];
         $pImg = $row['image'];
         $review = $row['review'];
         $review = explode("\n",$review);

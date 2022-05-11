@@ -33,8 +33,8 @@ function recalculateCart()
   
   /* Calculate totals */
   var tax = subtotal * taxRate;
-  var shipping = (subtotal > 0 ? shippingRate : 0);
-  total = subtotal + tax + shipping;
+  var shipping = (subtotal < 500  ? shippingRate : 0);
+  total = subtotal + shipping;
   
   /* Update totals display */
   $('.totals-value').fadeOut(fadeTime, function() {
@@ -125,6 +125,9 @@ function getCartItem() {
       cart.innerHTML += response;
       
     }
+
+    
+    
   });
   
 }
@@ -143,4 +146,6 @@ function checkout() {
 }
 
 getCartItem();
+
+
 
